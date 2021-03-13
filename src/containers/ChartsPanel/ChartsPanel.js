@@ -11,7 +11,8 @@ class ChartsPanel extends Component {
     state = {
         loading: true,
         loading2: true,
-        error: false
+        error: false,
+        today: ''
     }
 
     componentDidMount () {
@@ -28,17 +29,18 @@ class ChartsPanel extends Component {
 
         axios.get( 'https://api.covidactnow.org/v2/state/NY.timeseries.json?apiKey=1da95672607a441580c5b16c707c79bd' )
             .then( res => {
-                const actualsTimeseries = res.data.actualsTimeseries;
+                const actualsTimeseries = res.data.actualsTimeseries.reverse();
                 const slicedTime = [];
                 const maxVal = 9;
                 const delta = Math.floor(actualsTimeseries.length / maxVal);
                 
-                for ( let i=0; i < actualsTimeseries.length; i=i+delta) {
+                for ( let i=1; i < actualsTimeseries.length; i=i+delta) {
                     slicedTime.push(actualsTimeseries[i]);
                 }
 
-                this.setState({historic: slicedTime});
-                console.log( this.state.historic[0] );
+                this.setState({historic: slicedTime.reverse()});
+                this.setState({today: this.state.historic['9']['date']});
+                console.log( this.state.today );
                 this.setState({loading2: false});
             } )
             .catch(error => {
@@ -64,10 +66,11 @@ class ChartsPanel extends Component {
         return (
             <Container>
                 <Row>
-                    <h1>Total datas</h1>
+                    <h1>Total data</h1>
                 </Row>
                 <Row>
                     <h5>Using data from <a href="https://covidactnow.org/data-api" target="_blank" rel="noreferrer">Covid Act Now</a></h5>
+                    <p>Displaying data from {this.state.today}</p>
                 </Row>
                 <Row>
                     <Col>
