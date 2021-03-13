@@ -1,0 +1,90 @@
+import React from 'react'
+import { Bar, Line } from '@reactchartjs/react-chart.js'
+
+const LineChart = (props) => (
+    <div>
+        <Bar 
+                    data={{
+                    labels: [props.historic[0]['date'],
+                    props.historic[1]['date'],
+                    props.historic[2]['date'],
+                    props.historic[3]['date'],
+                    props.historic[4]['date'],
+                    props.historic[5]['date'],
+                    props.historic[6]['date'],
+                    props.historic[7]['date'],
+                    props.historic[8]['date'],
+                    props.historic[9]['date'],
+                ],
+                    datasets: [
+                        {
+                            label: 'Cases',
+                            borderWidth: 1,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 1)'
+                              ],
+                            borderColor: [
+                            'rgba(255, 99, 132, 1)'
+                            ],
+                            hoverBackgroundColor: "#ed873e",
+                            hoverBorderColor: "#e35f00",
+                            data: [props.historic[0]['cases'],
+                            props.historic[1]['cases'],
+                            props.historic[2]['cases'],
+                            props.historic[3]['cases'],
+                            props.historic[4]['cases'],
+                            props.historic[5]['cases'],
+                            props.historic[6]['cases'],
+                            props.historic[7]['cases'],
+                            props.historic[8]['cases'],
+                            props.historic[9]['cases']
+                        ],
+                        }
+                        ]
+                    }}
+                />
+        <Line 
+            data={{
+            labels: [props.historic[0]['date'],
+            props.historic[1]['date'],
+            props.historic[2]['date'],
+            props.historic[3]['date'],
+            props.historic[4]['date'],
+            props.historic[5]['date'],
+            props.historic[6]['date'],
+            props.historic[7]['date'],
+            props.historic[8]['date'],
+            props.historic[9]['date'],
+                ],
+                datasets: [
+                    {
+                        label: 'New Cases',
+                        borderWidth: 1,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)'
+                            ],
+                        borderColor: [
+                        'rgba(255, 99, 132, 1)'
+                        ],
+                        fill: false,
+                        hoverBackgroundColor: "#ed873e",
+                        hoverBorderColor: "#e35f00",
+                        data: [props.historic[0]['newCases'],
+                        props.historic[1]['newCases'],
+                        props.historic[2]['newCases'],
+                        props.historic[3]['newCases'],
+                        props.historic[4]['newCases'],
+                        props.historic[5]['newCases'],
+                        props.historic[6]['newCases'],
+                        props.historic[7]['newCases'],
+                        props.historic[8]['newCases'],
+                        props.historic[9]['newCases']
+                    ],
+                    }
+                    ]
+                }} 
+                />
+    </div>
+)
+
+export default LineChart
