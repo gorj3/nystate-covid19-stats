@@ -2,6 +2,10 @@
 
 React application displaying the current and historical COVID-19 data for the state of New York. Data provided by [Covid Act Now API](https://apidocs.covidactnow.org/).
 
+The application is deployed in [react.jorgedemo.com](https://react.jorgedemo.com).
+### The CI/CD pipeline used in AWS is the following:
+
+
 ---
 ### Libraries used in this app
 - [React-Bootstrap](https://github.com/react-bootstrap/react-bootstrap)
