@@ -4,7 +4,7 @@ import axios from 'axios';
 import TotalCard from '../../components/TotalCard/TotalCard.js';
 import LineChart from '../../components/LineChart/LineChart.js';
 import {Container, Row, Col} from 'react-bootstrap';
-import Spinner from 'react-bootstrap/Spinner'
+import Spinner from 'react-bootstrap/Spinner';
 
 
 class ChartsPanel extends Component {
@@ -12,7 +12,6 @@ class ChartsPanel extends Component {
         loading: true,
         loading2: true,
         error: false,
-        today: ''
     }
 
     componentDidMount () {
@@ -31,7 +30,7 @@ class ChartsPanel extends Component {
             .then( res => {
                 const actualsTimeseries = res.data.actualsTimeseries.reverse();
                 const slicedTime = [];
-                const maxVal = 9;
+                const maxVal = 10;
                 const delta = Math.floor(actualsTimeseries.length / maxVal);
                 
                 for ( let i=1; i < actualsTimeseries.length; i=i+delta) {
@@ -39,8 +38,8 @@ class ChartsPanel extends Component {
                 }
 
                 this.setState({historic: slicedTime.reverse()});
-                this.setState({today: this.state.historic['9']['date']});
-                console.log( this.state.today );
+                //this.setState({today: this.state.historic['9']['date']});
+                console.log( this.state.historic['0'] );
                 this.setState({loading2: false});
             } )
             .catch(error => {
@@ -51,38 +50,42 @@ class ChartsPanel extends Component {
     }
     
     render () {
-        let displayTotal = <TotalCard current={this.state.current}/>;
+        let displayTotal = <Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>
         //console.log( this.state.current );
-        if (this.state.loading){
-            displayTotal = <Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>
+        if (!this.state.loading){
+            displayTotal = <TotalCard current={this.state.current}/>;
         }
 
-        let displayLine = <LineChart historic={this.state.historic}/>;
+        let displayLine = <Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>;
         //console.log( this.state.current );
-        if (this.state.loading2){
-            displayLine = <Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>
+        if (!this.state.loading2){
+            displayLine = <LineChart historic={this.state.historic}/>;
+            //console.log( this.state.historic );
         }
+        
 
         return (
-            <Container>
-                <Row>
-                    <h1>Total data</h1>
+            <div >
+            <Container className="Panel">
+                <Row >
+                    <h1 className="Header">Total data</h1>
                 </Row>
                 <Row>
-                    <h5>Using data from <a href="https://covidactnow.org/data-api" target="_blank" rel="noreferrer">Covid Act Now</a></h5>
-                    <p>Displaying data from {this.state.today}</p>
+                    <h5 className="Header">Using data from <a href="https://covidactnow.org/data-api" target="_blank" rel="noreferrer">Covid Act Now</a></h5>
                 </Row>
-                <Row>
+                <Row className='Part'>
                     <Col>
                         {displayTotal}
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        {displayLine}
+                    {displayLine}
                     </Col>
                 </Row>
             </Container>
+            </div>
+
         );
     }
 }
