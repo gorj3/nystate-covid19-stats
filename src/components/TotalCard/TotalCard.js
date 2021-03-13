@@ -4,7 +4,6 @@ import { Card, Container, Row, Col, ListGroup } from 'react-bootstrap';
 import { Doughnut  } from '@reactchartjs/react-chart.js';
 import './TotalCard.css';
 import CountUp from 'react-countup';
-import NumberFormat from 'react-number-format';
 
 
 const TotalCard = (props) => (
