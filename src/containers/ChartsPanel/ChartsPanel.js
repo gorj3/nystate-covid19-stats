@@ -64,7 +64,7 @@ class ChartsPanel extends Component {
         return (
             <Container>
                 <Row>
-                    <h1>Total data</h1>
+                    <h1>Total datas</h1>
                 </Row>
                 <Row>
                     <h5>Using data from <a href="https://covidactnow.org/data-api" target="_blank" rel="noreferrer">Covid Act Now</a></h5>
