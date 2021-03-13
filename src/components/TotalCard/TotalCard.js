@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { Card, Container, Row, Col, ListGroup } from 'react-bootstrap';
-import { Doughnut  } from '@reactchartjs/react-chart.js'
+import { Doughnut  } from '@reactchartjs/react-chart.js';
 
 const TotalCard = (props) => (
-    <Container>
+    <Container >
         <Row>
-            <Col>
-                <Card>
-                    <Card.Body>
+            <Col >
+                <Card >
+                    <Card.Body >
                         <Card.Title>{props.current.actuals.cases}</Card.Title>
                         <Card.Text>
                         Cases
@@ -17,7 +17,7 @@ const TotalCard = (props) => (
                 </Card>
             </Col>
             <Col>
-                <Card>
+                <Card >
                     <Card.Body>
                         <Card.Title>{props.current.actuals.deaths}</Card.Title>
                         <Card.Text>
@@ -26,8 +26,8 @@ const TotalCard = (props) => (
                     </Card.Body>
                 </Card>
             </Col>
-            <Col>
-            <Card style={{ width: '18rem' }}>
+            <Col >
+            <Card >
             <ListGroup variant="flush">
                 <ListGroup.Item>
                 <h5>Test Results</h5>

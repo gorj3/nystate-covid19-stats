@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bar, Line } from '@reactchartjs/react-chart.js'
+import { Bar, Line } from '@reactchartjs/react-chart.js';
 
 const LineChart = (props) => (
     <div>
