@@ -1,5 +1,7 @@
 # NY State COVID-19 React App hosted in AWS with CI/CD
 
+React application displaying the current and historical COVID-19 data for the state of New York. Data provided by [Covid Act Now API](https://apidocs.covidactnow.org/).
+
 ---
 ### Libraries used in this app
 - [React-Bootstrap](https://github.com/react-bootstrap/react-bootstrap)
