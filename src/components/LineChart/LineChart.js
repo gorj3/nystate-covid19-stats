@@ -1,48 +1,56 @@
 import React from 'react'
 import { Bar, Line } from '@reactchartjs/react-chart.js';
+import '../LineChart/LineChart.css';
 
 const LineChart = (props) => (
-    <div>
+    <div className="disp">
+        <div id='first'>
         <Bar 
-                    data={{
-                    labels: [props.historic[0]['date'],
-                    props.historic[1]['date'],
-                    props.historic[2]['date'],
-                    props.historic[3]['date'],
-                    props.historic[4]['date'],
-                    props.historic[5]['date'],
-                    props.historic[6]['date'],
-                    props.historic[7]['date'],
-                    props.historic[8]['date'],
-                    props.historic[9]['date'],
+            data={{
+            labels: [props.historic[0]['date'],
+            props.historic[1]['date'],
+            props.historic[2]['date'],
+            props.historic[3]['date'],
+            props.historic[4]['date'],
+            props.historic[5]['date'],
+            props.historic[6]['date'],
+            props.historic[7]['date'],
+            props.historic[8]['date'],
+            props.historic[9]['date'],
+            ],
+            datasets: [
+                {
+                label: 'Historical Total Cases',
+                borderWidth: 1,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)'
+                    ],
+                borderColor: [
+                'rgba(255, 99, 132, 1)'
                 ],
-                    datasets: [
-                        {
-                            label: 'Cases',
-                            borderWidth: 1,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 1)'
-                              ],
-                            borderColor: [
-                            'rgba(255, 99, 132, 1)'
-                            ],
-                            hoverBackgroundColor: "#ed873e",
-                            hoverBorderColor: "#e35f00",
-                            data: [props.historic[0]['cases'],
-                            props.historic[1]['cases'],
-                            props.historic[2]['cases'],
-                            props.historic[3]['cases'],
-                            props.historic[4]['cases'],
-                            props.historic[5]['cases'],
-                            props.historic[6]['cases'],
-                            props.historic[7]['cases'],
-                            props.historic[8]['cases'],
-                            props.historic[9]['cases']
-                        ],
-                        }
-                        ]
-                    }}
-                />
+                hoverBackgroundColor: "#ed873e",
+                hoverBorderColor: "#e35f00",
+                data: [props.historic[0]['cases'],
+                props.historic[1]['cases'],
+                props.historic[2]['cases'],
+                props.historic[3]['cases'],
+                props.historic[4]['cases'],
+                props.historic[5]['cases'],
+                props.historic[6]['cases'],
+                props.historic[7]['cases'],
+                props.historic[8]['cases'],
+                props.historic[9]['cases']
+                ],
+                }
+                ]
+            }}
+            options={{
+                responsive: true,
+                maintainAspectRatio: false,
+            }}
+        />
+        </div>
+        <div id='second'>
         <Line 
             data={{
             labels: [props.historic[0]['date'],
@@ -58,7 +66,7 @@ const LineChart = (props) => (
                 ],
                 datasets: [
                     {
-                        label: 'New Cases',
+                        label: 'Historical New Cases',
                         borderWidth: 1,
                         backgroundColor: [
                             'rgba(255, 99, 132, 1)'
@@ -82,8 +90,13 @@ const LineChart = (props) => (
                     ],
                     }
                     ]
-                }} 
+                }}
+                options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                }}
                 />
+        </div>
     </div>
 )
 

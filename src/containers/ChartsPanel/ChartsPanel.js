@@ -5,6 +5,7 @@ import TotalCard from '../../components/TotalCard/TotalCard.js';
 import LineChart from '../../components/LineChart/LineChart.js';
 import {Container, Row, Col} from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
+import '../ChartsPanel.css';
 
 
 class ChartsPanel extends Component {
@@ -33,13 +34,13 @@ class ChartsPanel extends Component {
                 const maxVal = 10;
                 const delta = Math.floor(actualsTimeseries.length / maxVal);
                 
-                for ( let i=1; i < actualsTimeseries.length; i=i+delta) {
+                for ( let i=0; i < actualsTimeseries.length; i=i+delta) {
                     slicedTime.push(actualsTimeseries[i]);
                 }
 
                 this.setState({historic: slicedTime.reverse()});
                 //this.setState({today: this.state.historic['9']['date']});
-                console.log( this.state.historic['0'] );
+                //console.log( this.state.historic['0'] );
                 this.setState({loading2: false});
             } )
             .catch(error => {
@@ -66,17 +67,20 @@ class ChartsPanel extends Component {
 
         return (
             <div >
-            <Container className="Panel">
-                <Row >
-                    <h1 className="Header">Total data</h1>
+            <Container>
+                <Row>
+                    <p className="Header">Using data from <a href="https://covidactnow.org/data-api" target="_blank" rel="noreferrer">Covid Act Now</a></p>
                 </Row>
                 <Row>
-                    <h5 className="Header">Using data from <a href="https://covidactnow.org/data-api" target="_blank" rel="noreferrer">Covid Act Now</a></h5>
+                    <p className="Header">Total current data:</p>
                 </Row>
                 <Row className='Part'>
                     <Col>
-                        {displayTotal}
+                    {displayTotal}
                     </Col>
+                </Row>
+                <Row>
+                    <p className="Header">Total historical data:</p>
                 </Row>
                 <Row>
                     <Col>

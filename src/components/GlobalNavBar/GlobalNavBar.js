@@ -7,8 +7,7 @@ const GlobalNavBar = () => (
     <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">NY Covid-19 Stats</Navbar.Brand>
             <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#home">About</Nav.Link>
+            <Nav.Link target="_blank" rel="noreferrer" href="https://github.com/gorj3/nystate-covid19-stats">GitHub</Nav.Link>
         </Nav>
     </Navbar>
     </>
