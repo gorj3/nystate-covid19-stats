@@ -3,6 +3,9 @@ import React from 'react';
 import { Card, Container, Row, Col, ListGroup } from 'react-bootstrap';
 import { Doughnut  } from '@reactchartjs/react-chart.js';
 import './TotalCard.css';
+import CountUp from 'react-countup';
+import NumberFormat from 'react-number-format';
+
 
 const TotalCard = (props) => (
     <Container >
@@ -11,9 +14,11 @@ const TotalCard = (props) => (
                 <Card className='Card'>
                     <Card.Header as="h5">Cases</Card.Header>
                     <Card.Body >
-                        <Card.Title>{props.current.actuals.cases}</Card.Title>
+                        <Card.Title>
+                            <CountUp end={props.current.actuals.cases} duration={1} separator=","/>
+                        </Card.Title>
                         <Card.Text>
-                        Total new cases: {props.current.actuals.newCases}
+                        Total new cases: <CountUp end={props.current.actuals.newCases} duration={1} separator=","/>
                         </Card.Text>
                     </Card.Body>
                 </Card>
@@ -22,9 +27,11 @@ const TotalCard = (props) => (
                 <Card className='Card'>
                 <Card.Header as="h5">Deaths</Card.Header>
                     <Card.Body>
-                        <Card.Title>{props.current.actuals.deaths}</Card.Title>
+                        <Card.Title>
+                            <CountUp end={props.current.actuals.deaths} duration={1} separator=","/>
+                        </Card.Title>
                         <Card.Text>
-                        Total new deaths: {props.current.actuals.newDeaths}
+                        Total new deaths: <CountUp end={props.current.actuals.newDeaths} duration={1} separator=","/>
                         </Card.Text>
                     </Card.Body>
                 </Card>
