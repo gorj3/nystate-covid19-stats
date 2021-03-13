@@ -2,32 +2,35 @@ import React from 'react';
 
 import { Card, Container, Row, Col, ListGroup } from 'react-bootstrap';
 import { Doughnut  } from '@reactchartjs/react-chart.js';
+import './TotalCard.css';
 
 const TotalCard = (props) => (
     <Container >
         <Row>
-            <Col >
-                <Card >
+            <Col className='Colu'>
+                <Card className='Card'>
+                    <Card.Header as="h5">Cases</Card.Header>
                     <Card.Body >
                         <Card.Title>{props.current.actuals.cases}</Card.Title>
                         <Card.Text>
-                        Cases
+                        Total new cases: {props.current.actuals.newCases}
                         </Card.Text>
                     </Card.Body>
                 </Card>
             </Col>
-            <Col>
-                <Card >
+            <Col className='Colu'>
+                <Card className='Card'>
+                <Card.Header as="h5">Deaths</Card.Header>
                     <Card.Body>
                         <Card.Title>{props.current.actuals.deaths}</Card.Title>
                         <Card.Text>
-                        Deaths
+                        Total new deaths: {props.current.actuals.newDeaths}
                         </Card.Text>
                     </Card.Body>
                 </Card>
             </Col>
-            <Col >
-            <Card >
+            <Col className='Colu'>
+            <Card className='Card'>
             <ListGroup variant="flush">
                 <ListGroup.Item>
                 <h5>Test Results</h5>
@@ -54,8 +57,6 @@ const TotalCard = (props) => (
                     }}
                 />
                 </ListGroup.Item>
-                <ListGroup.Item>Total new cases: {props.current.actuals.newCases}</ListGroup.Item>
-                <ListGroup.Item>Total new deaths: {props.current.actuals.newDeaths}</ListGroup.Item>
             </ListGroup>
             </Card>
             </Col>

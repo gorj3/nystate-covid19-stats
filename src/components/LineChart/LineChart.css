@@ -1,0 +1,8 @@
+.Line {
+    height: 100%;
+}
+
+.disp {
+    height: 100%;
+    justify-content: space-evenly;
+  }

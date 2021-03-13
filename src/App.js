@@ -6,7 +6,7 @@ import GlobalNavBar from './components/GlobalNavBar/GlobalNavBar.js';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <GlobalNavBar/>
         <ChartsPanel/>
     </div>
