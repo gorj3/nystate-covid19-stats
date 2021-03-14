@@ -23,7 +23,7 @@ Finally, after reviewing the changes, I can manually approve the changes to be p
 
 ![prod](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/readme_img/approval.PNG)
 
-The content in prod is served with a AWS CloudFront CDN, which also provides SSL encryption. The domain is hosted in AWS Route53.
+The content in prod is served with an AWS CloudFront CDN, which also provides SSL encryption. The domain is hosted in AWS Route53.
 
 
 ---
