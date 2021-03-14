@@ -7,22 +7,23 @@ The application is deployed in [react.jorgedemo.com](https://react.jorgedemo.com
 
 Using the Developer Tools on AWS, CodePiline starts the continuous delivery when it detects a change in this repository main branch.
 
-![source](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/public/logo512.png)
+![source](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/readme_img/source.PNG)
+
 
  AWS CodePipeline takes the source code and builds it for continuous integration with AWS CodeBuild, using the configuration from [buildspec.yml](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/buildspec.yml).
 
-![build](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/public/logo512.png)
+![build](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/readme_img/build.PNG)
 
 After the files has been created, AWS CodeDeploy copies the files into an AWS S3 stage bucket for web testing: 
 [http://stagereact.jorgedemo.com.s3-website-us-east-1.amazonaws.com/](http://stagereact.jorgedemo.com.s3-website-us-east-1.amazonaws.com/)
   
-![deploy](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/public/logo512.png)
+![deploy](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/readme_img/stage.PNG)
 
 Finally, after reviewing the changes, I can manually approve the changes to be pushed into the production environment, hosted at [react.jorgedemo.com](https://react.jorgedemo.com).
 
-![prod](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/public/logo512.png)
+![prod](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/readme_img/approval.PNG)
 
-The process to use AWS S3 to host serverless web applications is in [react.jorgedemo.com](https://react.jorgedemo.com). The content in prod served with a CDN, so old content needs to be purged after every change.
+The content in prod is served with a AWS CloudFront CDN, which also provides SSL encryption. The domain is hosted in AWS Route53.
 
 
 ---
