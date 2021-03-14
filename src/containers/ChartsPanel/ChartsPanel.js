@@ -5,7 +5,7 @@ import TotalCard from '../../components/TotalCard/TotalCard.js';
 import LineChart from '../../components/LineChart/LineChart.js';
 import {Container, Row, Col} from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
-import '../ChartsPanel.css';
+import './ChartsPanel.css';
 
 
 class ChartsPanel extends Component {
