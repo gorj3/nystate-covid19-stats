@@ -18,7 +18,7 @@ After the files has been created, AWS CodeDeploy copies the files into an AWS S3
   
 ![deploy](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/public/logo512.png)
 
-Finally, after reviewing the changes, I can manually approve the changes to be pushed into the production enviroment, hosted at [react.jorgedemo.com](https://react.jorgedemo.com).
+Finally, after reviewing the changes, I can manually approve the changes to be pushed into the production environment, hosted at [react.jorgedemo.com](https://react.jorgedemo.com).
 
 ![prod](https://raw.githubusercontent.com/gorj3/nystate-covid19-stats/main/public/logo512.png)
 
